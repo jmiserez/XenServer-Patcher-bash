@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Automatically Update script for Xen Servers. Supports only 6.2 at the moment.
+#Automatically Update script for Xen Servers. Supports only 6.5 at the moment.
 #Start by downloading the xml file
 #bash xeer1
 echo "Downloading updates.xml"
@@ -9,7 +9,7 @@ curl -# -L -R -o updates.xml http://updates.xensource.com/XenServer/updates.xml
 #Columns are 1-patch name 2 - url 3- timestamp and 4- uuid
 #Each column is one variable and sorted by date and then by name
 
-xmllint --shell updates.xml <<< 'cat //patch[contains(@name-label,"XS62")]/@name-label'|grep -v ">\|<\|\ -"|cut -d"\"" -f2|while read line
+xmllint --shell updates.xml <<< 'cat //patch[contains(@name-label,"XS65")]/@name-label'|grep -v ">\|<\|\ -"|cut -d"\"" -f2|while read line
         do
         lineUrl=$(xmllint --shell updates.xml <<< 'cat //patch[contains(concat(" ", normalize-space(@name-label), " ")," '$line' ")]/@patch-url'|grep "patch-url"|cut -d"\"" -f2)
         lineTime=$(xmllint --shell updates.xml <<< 'cat //patch[contains(concat(" ", normalize-space(@name-label), " ")," '$line' ")]/@timestamp'|grep "timestamp"|cut -d"\"" -f2)
