@@ -69,4 +69,6 @@ cat patchList|sort -k3,3 -k4|while read line1 line2 line3 line4
                                                 exit 0
                                 fi
                 fi
+                # Remove all the .zip files
+                rm -f *.zip
         done
