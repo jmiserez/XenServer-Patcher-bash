@@ -1,13 +1,13 @@
 Xeer1update
 ======================
 
-Simple bash script for Xen Server 6.2
+Simple bash script for Xen Server 6.5
 
 - Downloads updates.xml from xenserver and parses it.
 - Sorts patches by timestamp and after that by filename in case that there is 2 with the same time stamp.
 - Downloads and installs all missing patches
 - If the zip files are already downloaded, it will not download them again.
-- After the installation it removes the source and the xsupdate files, but leaves the zip files. If have other servers you can copy the zip versions
+- After the installation it removes the source, xsupdate files, and zip files.
 - Uses xe patch clean to to try to save some extra space
 To use it run 
 bash xeer1update
